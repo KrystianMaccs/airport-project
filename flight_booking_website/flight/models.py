@@ -4,8 +4,8 @@ import datetime
 
 class Flight(models.Model):
     aeroplane = models.CharField(max_length=30)
-    departure = models.ForeignKey(Airport, on_delete=models.CASCADE)
-    #destination = models.ForeignKey(Airport, on_delete=models.CASCADE)
+    departure = models.ForeignKey(Airport, related_name="departure_airport", on_delete=models.CASCADE)
+    destination = models.ForeignKey(Airport, related_name="destination_airport", on_delete=models.CASCADE)
     departure_datetime = models.DateTimeField('Departure Time', auto_now_add=True)
     arrival_datetime = models.DateTimeField('Arrival Time', auto_now=True)
     max_passengers = models.PositiveSmallIntegerField()
