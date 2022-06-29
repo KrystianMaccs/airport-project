@@ -18,5 +18,5 @@ class Flight(models.Model):
     def duration(self):
         departure_time = datetime.datetime.now()
         arrival_time = datetime.datetime.now()
-        flight_duration = arrival_time - departure_time
+        flight_duration = arrival_time - departure_time    #Not sure about this class may be it will work after the tmeplates are added
         return flight_duration"""
