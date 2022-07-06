@@ -9,3 +9,7 @@ class Airport(models.Model):
 
     def __str__(self):
         return self.name
+
+
+    class Meta:
+        order_by = ["name"]

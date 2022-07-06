@@ -1,3 +1,5 @@
 from django.shortcuts import render
+from flight.models import Flight
 
-# Create your views here.
+def flight_detail(request):
+    pass
