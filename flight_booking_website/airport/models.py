@@ -1,4 +1,4 @@
-from unicodedata import name
+#from unicodedata import name
 from django.db import models
 
 
@@ -12,4 +12,4 @@ class Airport(models.Model):
 
 
     class Meta:
-        order_by = ["name"]
+        ordering = ["name"]

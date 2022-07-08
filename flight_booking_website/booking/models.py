@@ -1,13 +1,10 @@
 from django.db import models
-from Flight.models import Flight
+from flight.models import Flight
 import random
 
 
 def random_string():
    return str(random.randint(100000, 999999))
-
-
-
 
 
 ## invoking the function

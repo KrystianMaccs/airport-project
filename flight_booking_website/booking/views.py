@@ -1,19 +1,17 @@
-from django.http import HttpResponse
+from multiprocessing import context
 from django.shortcuts import render
 from .models import Booking
 
 
 def home(request):
-    contex ={
+    context ={
 
-        'Booking':Booking.objects.filter("Booking_datetime")
+        "Booking": Booking.objects.filter("Booking_datetime")
     }
 
-    return(request)
+    return render(request, 'booking/booking_home.html', context)
 
 
 def Booking_details(request):    #kind a confused here
     pass
 
-
-# Create your views here.

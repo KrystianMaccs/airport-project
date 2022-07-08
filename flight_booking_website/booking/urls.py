@@ -1,9 +1,8 @@
-from django import views
-from django.urls import path 
-from .models import Booking
+from django.urls import path
+from . import views
 
 
-urlpatterns =[
+urlpatterns = [
 
-    path('',views.home, name='home')
+    path("", views.booking_home, name='booking_home'),
 ]
