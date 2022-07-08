@@ -1,5 +1,5 @@
 from django.db import models
-from Airport.models import Airport
+from airport.models import Airport
 from datetime import datetime
 
 
@@ -10,14 +10,13 @@ def difference(h1, m1,h2, m2):
   t2 = h2 * 60 + m2
 
 
-
 class Flight(models.Model):
 
     aeroplane = models.CharField(max_length=100)
     departure = models.ForeignKey(Airport, on_delete=models.CASCADE,related_name='departure')
     destination = models.ForeignKey(Airport, on_delete=models.CASCADE, related_name='destination')
     departure_datetime = models.DateTimeField(auto_now_add=True)
-    arrival_datetime = models.DateTimeField( max_length=100)  # have to add manually on the database and before doing that make migrations
+    arrival_datetime = models.DateTimeField( max_length=100)
     max_passengers = models.PositiveIntegerField()
     price = models.PositiveSmallIntegerField()
     
@@ -30,7 +29,7 @@ class Flight(models.Model):
 
     
     @property
-    def hourdiff(self):
+    def duration(self):
 
 
       t1 = h1 * 60 + m1

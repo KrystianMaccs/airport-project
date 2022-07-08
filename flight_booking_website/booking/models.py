@@ -13,8 +13,6 @@ def random_string():
 ## invoking the function
 
 class Booking(models.Model):
-
-
     reference_no         = models.CharField(max_length=6, default=random_string, unique=True, editable=False )
     passenger_first_name = models.CharField(max_length=20)
     passenger_last_name  = models.CharField(max_length=20)
