@@ -3,7 +3,7 @@ from django.shortcuts import render
 from .models import Booking
 
 
-def home(request):
+def booking_home(request):
     context ={
 
         "Booking": Booking.objects.filter("Booking_datetime")

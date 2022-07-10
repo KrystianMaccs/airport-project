@@ -1,13 +1,7 @@
 from django.urls import path 
-from .import views
+from . import views
 
 urlpatterns =[
-
-
-    path('', views.Home, name='Home'),
-    path('/', views.search_result , name='search_result'),
-    path('/', views.Details, name='Details')
-
-
-
+    path('', views.flight_home, name='Home'),
+    path('flight_search/', views.flight_search , name='search_result'),
 ]
