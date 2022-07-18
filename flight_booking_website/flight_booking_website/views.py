@@ -8,7 +8,7 @@ from django.core.mail import send_mail
 
 
 
-def home_page(request):
+def homepage(request):
 
     template = 'homepage.html'
     flights = Flight.objects.all().order_by('departure_datetime')

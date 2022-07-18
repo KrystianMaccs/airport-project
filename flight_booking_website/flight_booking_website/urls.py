@@ -22,7 +22,7 @@ from . import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.home_page, name='home_page'),
+    path('', views.homepage, name='homepage'),
     path('flight/', include('flight.urls', namespace='flight')),
     path('i18n/', include('django.conf.urls.i18n')),
 
