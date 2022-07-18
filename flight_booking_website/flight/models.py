@@ -1,7 +1,6 @@
 from django.db import models
 from airport.models import Airport
 from django.utils import timezone
-import math
 
 
 class Flight(models.Model):
@@ -19,7 +18,7 @@ class Flight(models.Model):
     @property
     def duration(self):
         duration_difference = self.arrival_datetime - self.departure_datetime
-        hours = math.round(duration_difference.total_seconds() / 3600)
+        hours = round(duration_difference.total_seconds() / 3600)
 
         return f"{hours} hours"
 

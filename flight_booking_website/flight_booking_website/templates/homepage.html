@@ -1,0 +1,159 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load countries %}
+{% block title %}Home{% endblock title %}
+
+{% block content %}
+
+<section id="home" class="about-us">
+	<div class="container">
+		<div class="about-us-content">
+			<div class="row">
+				<div class="col-sm-12">
+					<div class="single-about-us">
+						<div class="about-us-txt">
+							<h2>
+								Explore the Beauty of the Beautiful World 
+							</h2>
+							<div class="about-btn">
+								<button  class="about-view">
+									Book now
+								</button>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-0">
+					<div class="single-about-us">
+						
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<section  class="travel-box">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="single-travel-boxes">
+					<div id="desc-tabs" class="desc-tabs">
+						<ul class="nav nav-tabs" role="tablist">
+							<li role="presentation">
+							 	<a href="#flights" aria-controls="flights" role="tab" data-toggle="tab">
+							 		<i class="fa fa-plane"></i>
+							 		flights
+							 	</a>
+							</li>
+						</ul>
+
+						<div class="tab-content">
+							<div role="tabpanel" class="tab-pane active fade in" id="flights">
+								<div class="tab-para">
+                  					<form action="{% url 'flight:flight-search' %}" method="get">
+									  <div class="row">
+									  	<div class="col-lg-4 col-md-4 col-sm-12">
+									  		<div class="single-tab-select-box">
+									  			<h2>from</h2>
+									  			<div class="travel-select-icon">
+                            				<input type="text" placeholder="enter your location" class="form-control" 
+											name="departure_airport" id="departure_airport" list="airport-list" 
+											value="{% if departure_airport %}{{departure_airport}}{% endif %}" 
+											hx-get="" 
+											hx-trigger="keyup changed delay:500ms"
+											hx-target="#search-results" 
+											hx-indicator=".htmx-indicator" hx-include="#destination_airport, #departure_date, #destination_date"/>
+
+                            				<datalist id="airport-list">
+                            				  <select id="airports" class="form-control">
+                            				    {% get_countries as countries %}
+                            				    {% for country in countries %}
+                            				        <option value="{{country.name}}">{{country.name}}</option>
+                            				        {% endfor %}
+                            				  </select>
+                            				</datalist>
+									  			</div>
+									  		</div>
+									  	</div>
+									  	<div class="col-lg-4 col-md-4 col-sm-12">
+									  		<div class="single-tab-select-box">
+									  			<h2>departure</h2>
+									  			<div class="travel-check-icon">
+									  					<input type="text" class="form-control" data-toggle="datepicker" name='departure_date' value="{% if departure_date %}{{departure_date}}{% endif %}" placeholder="YYYY-MM-DD" style="text-transform:none;"
+														  hx-get="" hx-trigger="keyup changed delay:500ms, mouseenter" hx-target="#search-results" hx-indicator=".htmx-indicator" 
+														  hx-include="#destination_airport, #departure_airport, #destination_date">
+									  			</div>
+									  		</div>
+									  	</div>
+									  	<div class="col-lg-4 col-md-4 col-sm-12">
+									  		<div class="single-tab-select-box">
+									  			<h2>Destination</h2>
+									  			<div class="travel-check-icon">
+									  					<input type="text" class="form-control" data-toggle="datepicker" id="destination_date" name='arrival_date' value="{% if arrival_date %}{{arrival_date}}{% endif %}" placeholder="YYYY-MM-DD" style="text-transform:none;"
+														  hx-get="" hx-trigger="keyup changed delay:500ms, mouseenter" hx-target="#search-results" hx-indicator=".htmx-indicator" 
+														  hx-include="#destination_airport, #departure_airport, #departure_date">
+									  			</div>
+									  		</div>
+									  	</div>
+									  </div>
+									  <div class="row">
+									  	<div class="col-lg-4 col-md-4 col-sm-12">
+									  		<div class="single-tab-select-box">
+									  			<h2>to</h2>
+									  			<div class="travel-select-icon">
+									  				<input type="text" placeholder="enter your destination"class="form-control" name="destination_airport" id="destination_airport" list="airport-list" value="{% if destination_airport %}{{destination_airport}}{% endif %}"
+													  hx-get="" 
+													  hx-trigger="keyup changed delay:500ms"
+													  hx-target="#search-results" 
+													  hx-indicator=".htmx-indicator" hx-include="#departure_airport, #departure_date, #destination_date"/>
+                                  				<datalist id="airport-list">
+                                  				    {% get_countries as countries %}
+                                  				    {% for country in countries %}
+                                  				        <option value="{{country.name}}">{{country.name}}</option>
+                                  				    {% endfor %}
+                                  				  </select>
+                                  				</datalist>
+									  			</div>
+									  		</div>
+									  	</div>
+									  	<div class="clo-sm-5">
+									  		<div class="about-btn pull-right">
+									  			<button  class="about-view travel-btn">
+									  				search	
+									  			</button>
+									  		</div>
+									  	</div>
+                    
+									</div>
+
+                  				</form>
+								  <h3 class='text-center'>
+									<span class="htmx-indicator"> 
+									  <img src="{% static 'assets/images/bars.svg' %}" style="height:40px !important" />
+									 </span> 
+								 </h3>
+								  <div id="search-results">
+									
+									
+									
+								
+
+								  </div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+{% include 'partials/services.html' %}
+{% include 'partials/testimonials.html' %}
+{% include 'partials/newsletter.html' %}
+{% include 'partials/footer.html' %}
+
+
+{% endblock content %}
+

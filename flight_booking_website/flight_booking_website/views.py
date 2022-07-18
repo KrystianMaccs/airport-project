@@ -10,7 +10,7 @@ from django.core.mail import send_mail
 
 def home_page(request):
 
-    template = 'landing_page.html'
+    template = 'homepage.html'
     flights = Flight.objects.all().order_by('departure_datetime')
     departure_airport = request.GET.get('departure_airport')
     destination_airport = request.GET.get('destination_airport')
@@ -25,7 +25,7 @@ def home_page(request):
             send_mail(subject='Welcome to BookFlight', 
             message='You have successfully subscribe to our newsletter champ!', 
             from_email=settings.EMAIL_HOST_USER, 
-            recipient_list=['email','boluwatifejanet7@gmail.com','ibukunolaifa@gmail.com'], fail_silently=False)  
+            recipient_list=['email','aerielwrites@gmail.com','krystianmaccs@gmail.com'], fail_silently=False)  
 
             messages.success(request, 'You have successfully subscribe to our newsletter')
             return redirect('/')
@@ -55,7 +55,7 @@ def home_page(request):
     }
 
     if request.htmx:
-        template = 'flight/partials/search.html'
+        template = 'flight/sidebar/search.html'
         departure_airport = request.GET.get('departure_airport')
         destination_airport = request.GET.get('destination_airport')
         departure_date = request.GET.get('departure_date')
