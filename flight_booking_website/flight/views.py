@@ -38,7 +38,7 @@ def flight_search(request):
     }
 
     if request.htmx:
-        template = 'flight/partials/search.html'
+        template = 'flight/sidebar/search.html'
         departure_airport = request.GET.get('departure_airport')
         destination_airport = request.GET.get('destination_airport')
         departure_date = request.GET.get('departure_date')

@@ -148,7 +148,7 @@
 
 								  <div id="search-results">
                                     {% if not request.htmx %}
-									    {% include 'flight/partials/search.html' %}
+									    {% include 'flight/sidebar/search.html' %}
                                     {% endif %}
 								  </div>
 									
@@ -162,5 +162,5 @@
 	</div><!--/.container-->
 </section><!--/.travel-box-->
 
-{% include 'partials/footer.html' %}
+{% include 'sidebar/footer.html' %}
 {% endblock content %}
