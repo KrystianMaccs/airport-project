@@ -40,6 +40,8 @@ INSTALLED_APPS = [
     'airport',
     'booking',
     'flight',
+    'django_htmx',
+    'django_countries',
 ]
 
 MIDDLEWARE = [
@@ -50,6 +52,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django_htmx.middleware.HtmxMiddleware',
 ]
 
 ROOT_URLCONF = 'flight_booking_website.urls'
